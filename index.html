@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <!-- ===== HTML-Metadaten ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Ekaterina Nikonova" />
+  <meta name="description" content="Persönliche Webseite über meine zwei orientalischen Katzen: Eva und Vasilisa." />
+  <meta name="keywords" content="Katzen, Orientalisch, Eva, Vasilisa, Pflege, Fotos" />
+  <meta name="robots" content="index,follow" />
+
+
+  <meta property="og:title" content="Meine Katzen – Eva & Vasilisa" />
+  <meta property="og:description" content="Lerne meine zwei orientalischen Katzen kennen: Eva und Vasilisa – Lieblingssachen, Pflege, Galerie und mehr." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/eva-vasilisa-hero.jpeg" />
+  <meta property="og:locale" content="de_DE" />
+
+  <link rel="icon" href="img/favicon.ico" />
+
+  <title>Meine Katzen – Eva & Vasilisa</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Seitennavigation ===== -->
+  <header>
+    <div class="nav" role="navigation" aria-label="Hauptnavigation">
+      <div class="brand">🐾 Meine Haustiere</div>
+      <nav>
+        <ul>
+          <li><a href="#start" aria-current="page">Start</a></li>
+          <li><a href="#ueber">Über</a></li>
+          <li><a href="#pflege">Pflege</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero / Einleitung ===== -->
+  <section id="start" class="hero">
+    <div class="card">
+        <h1>Meine Katzen:<br><span style="color: var(--accent-2);">Eva &amp; Vasilisa 🐱🐱</span></h1>
+      <p>
+        Willkommen auf meiner kleinen Webseite über meine Haustiere. Hier findest du Informationen über
+        Charakter, Pflege, Lieblingssachen und eine kleine Fotogalerie. Viel Spaß beim Stöbern!
+      </p>
+    </div>
+    <figure>
+      <img src="img/eva-vasilisa-hero.jpeg" alt="Eva und Vasilisa liegen zusammen auf einer Decke und blicken in die Kamera" / width="1200" height="800">
+    </figure>
+  </section>
+
+  <main>
+    <!-- ===== Über ===== -->
+    <section id="ueber">
+      <h2 class="section-title">Über Eva &amp; Vasilisa</h2>
+      <p class="section-sub">Rasse, Alter, Charakter – in Kürze vorgestellt.</p>
+
+      <div class="grid">
+        <article class="panel col-6">
+          <h3>Steckbrief</h3>
+          <ul>
+            <li><strong>Art:</strong> Katzen (Orientalisch)</li>
+            <li><strong>Geboren:</strong> 2024 </li>
+            <li><strong>Lieblingsfutter:</strong> Thunfisch und Leckerli </li>
+            <li><strong>Lieblingsplatz:</strong> Fensterbank in der Sonne </li>
+          </ul>
+        </article>
+        <article class="panel col-6">
+          <h3>Charakter</h3>
+          <p>
+            Eva und Vasilisa sind neugierig, verspielt und sehr verschmust. Fremden gegenüber sind sie
+            anfangs vorsichtig, tauen aber schnell auf.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Pflege ===== -->
+    <section id="pflege">
+      <h2 class="section-title">Pflege & Alltag</h2>
+      <p class="section-sub">So bleibt meine Haustiere gesund und glücklich.</p>
+      <div class="grid">
+        <article class="panel col-4">
+          <h3>Ernährung</h3>
+          <p>
+            Ausgewogene Nass- und Trockenfutter-Mahlzeiten, frisches Wasser und gelegentliche Snacks.
+          </p>
+        </article>
+        <article class="panel col-4">
+          <h3>Gesundheit</h3>
+          <p>
+            Regelmäßige Tierarztbesuche, Impfungen und Parasitenprophylaxe sind wichtig.
+          </p>
+        </article>
+        <article class="panel col-4">
+          <h3>Beschäftigung</h3>
+          <p>
+            Tägliches Spielen und Klettern – Kratzbaum, Intelligenzspiele und Fangspiele.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Galerie ===== -->
+    <section id="galerie">
+      <h2 class="section-title">Galerie</h2>
+      <p class="section-sub">Ein paar Schnappschüsse aus dem Alltag.</p>
+      <div class="gallery" role="list" aria-label="Fotogalerie von Eva und Vasilisa">
+        <img src="img/eva-vasilisa-1.jpg" width="900" height="600" alt="Weiße Katze Eva übt den Blick »noch mehr Futter«" role="listitem" />
+        <img src="img/eva-vasilisa-2.jpg" width="900" height="600" alt="Vasilisa trainiert: Beute fangen, ohne aufzustehen" role="listitem" />
+        <img src="img/eva-vasilisa-3.jpg" width="900" height="600" alt="Teamwork: eine wacht, die andere plant Unsinn" role="listitem" />
+      </div>
+    </section>
+
+    <!-- ===== Kontakt ===== -->
+    <section id="kontakt">
+      <h2 class="section-title">Kontakt</h2>
+      <p class="section-sub">Schreib mir eine Nachricht.</p>
+      <div class="panel">
+        <form action="#" method="post" aria-label="Kontaktformular">
+          <div style="display:grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+            <label>
+              <span>Name</span><br>
+              <input name="name" type="text" required placeholder="Dein Name"
+                     style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(148,163,184,0.3); background:#0b1220; color:var(--text);">
+            </label>
+            <label>
+              <span>E-Mail</span><br>
+              <input name="email" type="email" required placeholder="name@example.com"
+                     style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(148,163,184,0.3); background:#0b1220; color:var(--text);">
+            </label>
+          </div>
+          <label style="display:block; margin-top:10px;">
+            <span>Nachricht</span><br>
+            <textarea name="message" rows="4" placeholder="Deine Nachricht"
+                      style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(148,163,184,0.3); background:#0b1220; color:var(--text);"></textarea>
+          </label>
+          <button type="submit" style="margin-top:12px; padding:10px 14px; border-radius:12px; border:1px solid rgba(34,197,94,0.6); background:rgba(34,197,94,0.15); color:var(--text); cursor:pointer;">
+            Senden
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <small class="muted">© <span id="y"></span> Ekaterina Nikonova. Alle Rechte vorbehalten. </small>
+      <small class="muted"><a href="#start" style="color:inherit;">Nach oben ↑</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // Kleine Komfortfunktion für das Jahr im Footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
