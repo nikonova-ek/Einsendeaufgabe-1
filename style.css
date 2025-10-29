@@ -9,8 +9,19 @@
     background:
       radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.15), transparent 60%),
       radial-gradient(900px 600px at -10% 10%, rgba(34,197,94,.12), transparent 50%),
+      url('img/bg-waves.jpg'),
       var(--bg);
-    line-height:1.6
+    line-height:1.6;
+    background-size: cover, cover, cover, cover;
+    background-attachment: fixed, fixed, fixed, fixed;
+    background-blend-mode: overlay, normal, normal, normal;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial,
+                 "Apple Color Emoji","Segoe UI Emoji";
+  }
+
+  h1,h2,h3{
+    font-family: inherit;
+    font-weight: 700;
   }
   /* Header + nav */
   header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(1.1) blur(8px);background:rgba(15,23,42,.7);border-bottom:1px solid rgba(148,163,184,.15)}
@@ -56,3 +67,27 @@
     nav a{padding:6px 10px}
     .gallery{grid-template-columns:1fr}
   }
+
+.post{ padding:22px }
+.post + .post{ margin-top:16px }
+
+
+.comments{ margin-top:14px; display:grid; gap:8px }
+.comments-label{ font-weight:600 }
+.comments textarea{
+  width:100%; padding:12px; border-radius:12px;
+  border:1px solid rgba(148,163,184,.35);
+  background:rgba(2,6,23,.6); color:var(--text); resize:vertical;
+}
+.comments textarea:focus{
+  outline:2px solid rgba(56,189,248,.45); outline-offset:2px;
+}
+.btn-comment{
+  justify-self:start; padding:10px 14px; border-radius:12px;
+  border:1px solid rgba(34,197,94,.6);
+  background:rgba(34,197,94,.15); color:var(--text); cursor:pointer;
+}
+.btn-comment:hover{ background:rgba(34,197,94,.22) }
+
+
+.col-12{ grid-column:span 12 }
