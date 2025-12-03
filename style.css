@@ -105,3 +105,26 @@ nav a:focus-visible{
 #blog .section-sub{  margin: 0 0 16px }
 .post h3{ margin: 0 0 12px }
 .post p{  margin: 0 }
+
+.hero-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.hero-slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slideshow img.active {
+  opacity: 1;
+}
