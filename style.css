@@ -128,3 +128,14 @@ nav a:focus-visible{
 .hero-slideshow img.active {
   opacity: 1;
 }
+
+.show-comments {
+  color: var(--accent-2);
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.show-comments:hover {
+  color: var(--accent);
+}

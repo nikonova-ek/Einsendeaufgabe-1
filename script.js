@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== Slideshow im Hero-Bereich =====
   const slides = document.querySelectorAll(".hero-slideshow img");
   let current = 0;
 
@@ -13,4 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     slides[current].classList.add("active");
   }, 2000);
+
+  // ===== Kommentarbereich einblenden =====
+  // Alle Links „Kommentar schreiben“ auswählen
+  const commentLinks = document.querySelectorAll(".show-comments");
+
+  // Für jeden Link einen Klick-Handler registrieren
+  commentLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      // Standardaktion des Links (Sprung zu "#") verhindern
+      event.preventDefault();
+
+      // Der nächste Nachbar-Knoten nach dem Link ist der Kommentarbereich (<div class="comments">)
+      const commentsBox = link.nextElementSibling;
+
+      if (commentsBox) {
+        // Falls ein Kommentarbereich existiert: anzeigen
+        commentsBox.style.display = "grid";
+
+        // Link nach dem Öffnen ausblenden
+        link.style.display = "none";
+      }
+    });
+  });
 });
