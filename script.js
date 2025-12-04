@@ -37,4 +37,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+   // ===== Zeichen-Zähler für Textareas =====
+  const textareas = document.querySelectorAll(".comments textarea");
+  const max = 500;
+
+  textareas.forEach((textarea) => {
+    const counter = textarea.nextElementSibling; // div.char-counter
+
+    // Anfangswert setzen
+    counter.textContent = `${max - textarea.value.length} Zeichen übrig`;
+
+    textarea.addEventListener("input", () => {
+      const remaining = max - textarea.value.length;
+      counter.textContent = `${remaining} Zeichen übrig`;
+    });
+  });
 });
