@@ -1,0 +1,24 @@
+Aufgabe (a) – Webserver
+
+Betriebssystem:
+macOS
+
+Verwendetes Webserver-Paket:
+Nginx (Installation über Homebrew)
+
+Relevante Pfade:
+- Projektverzeichnis (Webroot):
+  /Users/ekaterinanikonova/Desktop/haustier-website
+
+- Nginx-Konfigurationsdatei:
+  /opt/homebrew/etc/nginx/servers/haustier-website.conf
+
+Konfigurationsänderungen:
+1) Document Root angepasst:
+   root /Users/ekaterinanikonova/Desktop/haustier-website;
+
+2) Startdatei festgelegt:
+   index index.html;
+
+3) Auslieferung statischer Dateien:
+   try_files $uri $uri/ =404;
