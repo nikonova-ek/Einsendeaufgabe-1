@@ -52,4 +52,47 @@ document.addEventListener("DOMContentLoaded", () => {
       counter.textContent = `${remaining} Zeichen übrig`;
     });
   });
+  // ===== AJAX: Neuigkeiten laden =====
+  // Auswahlfeld (Dropdown) und Ausgabebereich aus dem DOM holen
+  const select = document.getElementById("news-select");
+  const panel = document.getElementById("game-panel");
+
+  // Prüfen, ob beide Elemente auf der Seite vorhanden sind
+  if (select && panel) {
+    // Elemente für Titel und Beschreibung innerhalb des Panels auswählen
+    const titleEl = panel.querySelector(".title");
+    const descEl = panel.querySelector(".description");
+
+    // Event-Listener für Änderungen im Auswahlfeld registrieren
+    select.addEventListener("change", () => {
+      // Der value-Wert enthält den Pfad zur JSON-Datei
+      const url = select.value;
+       // Falls keine Neuigkeit ausgewählt wurde
+      if (!url) {
+        titleEl.textContent = "–";
+        descEl.textContent = "Bitte eine Neuigkeit auswählen.";
+        return;
+      }
+
+      // Asynchrones Laden der JSON-Datei mit der Fetch-API
+      fetch(url)
+        .then((response) => {
+          // Überprüfen, ob die HTTP-Anfrage erfolgreich war
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          // Antwort in ein JavaScript-Objekt (JSON) umwandeln
+          return response.json();
+        })
+        .then((data) => {
+          // Die geladenen Daten in die HTML-Seite einfügen
+          titleEl.textContent = data.title ?? "–";
+          descEl.textContent = data.description ?? "";
+        })
+        .catch((err) => {
+          // Fehlerbehandlung bei fehlgeschlagener Anfrage
+          titleEl.textContent = "Fehler";
+          descEl.textContent = "Die Neuigkeit konnte nicht geladen werden.";
+          console.error(err);
+        });
+    });
+  }
 });
