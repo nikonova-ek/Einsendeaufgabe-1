@@ -52,6 +52,55 @@ document.addEventListener("DOMContentLoaded", () => {
       counter.textContent = `${remaining} Zeichen übrig`;
     });
   });
+  // ===== Kommentare speichern (PHP + JSON) =====
+  // Buttons zum Speichern der Kommentare auswählen
+  const commentButtons = document.querySelectorAll(".btn-comment");
+  commentButtons.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const box = btn.closest(".comments");
+      if (!box) return;
+
+      const textarea = box.querySelector("textarea");
+      if (!textarea) return;
+
+      //// Post-ID aus der Textarea-ID ermitteln (z.B. c-post-1 → post-1)
+      const textareaId = textarea.id || "";
+      const postId = textareaId.startsWith("c-") ? textareaId.slice(2) : textareaId;
+
+      // Kommentartext lesen und prüfen
+      const comment = textarea.value.trim();
+
+      if (!comment) {
+        alert("Bitte einen Kommentar eingeben.");
+        return;
+      }
+
+      try {
+        // Kommentar per AJAX (fetch) an das PHP-Skript senden
+        const res = await fetch("save_comment.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ postId, comment }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error || "Unbekannter Fehler");
+        }
+
+        alert("Kommentar gespeichert ✅");
+        textarea.value = "";
+
+        // Zeichenzähler nach dem Speichern aktualisieren
+        const counter = textarea.nextElementSibling;
+        if (counter) counter.textContent = `${max} Zeichen übrig`;
+      } catch (e) {
+        console.error(e);
+        alert("Speichern fehlgeschlagen: " + e.message);
+      }
+    });
+  });
   // ===== AJAX: Neuigkeiten laden =====
   // Auswahlfeld (Dropdown) und Ausgabebereich aus dem DOM holen
   const select = document.getElementById("news-select");
